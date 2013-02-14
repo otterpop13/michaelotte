@@ -1,18 +1,59 @@
 /*** Non-specific tags ***/
 
-html {
-	text-size-adjust: 200%;
-	-webkit-text-size-adjust:200%;
-	-moz-text-size-adjust: 200%;
-	-o-text-size-adjust: 200%;
-}
-
 body {
 	background: #eee;
 }
 
 nav {
 	text-align: center;
+}
+
+input[type=text], input[type=password], input[type=date], input[type=time], textarea {
+	@include transition(all 0.30s ease-in-out);
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline:none;
+	padding: 3px 0px 3px 3px;
+	border: 1px solid #ccc;
+	width: 50%;
+	min-width: 225px;
+	line-height: 18px;
+	font-family: 'helvetica neue', helvetica;
+	font-size: 12px;
+}
+ 
+input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, input[type=time]:focus, textarea:focus {
+	box-shadow:0px 0px 5px #1ADB40;
+	border: 1px solid #1ADB40;
+}
+
+button {
+	border: 1px #ccc solid;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	outline: none;
+	background: #eee;
+	box-shadow: #ddd 1px 1px 3px 0px;
+	color: #888;
+	padding: 12px 17px 12px 17px;
+	cursor: pointer;
+}
+
+button:hover {
+	border: 1px #C2F0CB solid;
+	background: #DFFFDE;
+	color: #1ead3b;
+	
+}
+
+button:active {
+	box-shadow: inset #ccc -1px -1px 3px 0px;
+	background: #ddd;
+	border: 1px #ccc solid;
+	color: #888;
 }
 
 /*** End of Non-specific tags ***/
@@ -159,6 +200,19 @@ hr#line {
 	width: 270px;
 }
 
+a.subtle_link {
+	color: #888;
+}
+
+a.subtle_link:hover {
+	color: #1ADB40;
+}
+
+#resume {
+	padding-top: 10px;
+	text-align: center;
+}
+
 #resume_doc {
 	width: 80%;
 	height: 300px;
@@ -202,18 +256,17 @@ a#resumedl:hover {
 
 #contact_spot {
 	width: 280px;
-	height: 300px;
+	height: 150px;
 	opacity: 0;
 	float: left;
 }
 
 p.text {
 	padding: 15px 15px 15px 20px;
-
+	line-height: 25px;
 }
 
 .content#home, .content#bio, .content#resume, .content#contact{
-	//text-align: center;
 	display: none;
 	opacity: 0;
 	background: #fff;
@@ -226,14 +279,54 @@ p.text {
 #message_alert {
 	color: #1ADB40;
 	opacity: 0;
+	min-width: 230px;
+	word-wrap: break-word;
+	margin-left: 30px;
+	padding-bottom: 5px;
+	z-index: 10000;
+	position: relative;
+	
+}
+
+#message_form {
+	z-index: 100;
+	position: relative;
+	padding: 10px 0px 15px 30px;
+}
+
+input#subject {
+	margin-top: 10px;
+}
+
+input#email {
+	margin-top: 10px;
+}
+
+#email_check {
+	color: #cc2727;
+	opacity: 0;
+	display: inline-block;
+}
+
+#message {
+	height: 144px;
+	resize: both;
+	margin-top: 10px;
+}
+
+#send_message {
+	margin-left: 40%;
 }
 
 
 /*** End Specific tags ***/
 
-/*** iPhone Specific Tags ***/
-	
-@media screen and (max-device-width: 480px) {
+/*** Mobile Specific Tags ***/
+
+/** Smartphones (portrait and landscape) **/
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
 	nav {
 		text-align: center;
 		margin-top: 40px;
@@ -271,4 +364,121 @@ p.text {
 	}
 }
 
-/*** iPhone Specific Tags End ***/
+/** iPhone < 5: **/
+@media screen and (device-aspect-ratio: 2/3) {
+	nav {
+		text-align: center;
+		margin-top: 40px;
+	}
+
+	div#otter {
+		background: url(../img/otter.png) no-repeat 0 0;
+		height: 16px;
+		width: 40px;
+		margin-left: 43%;
+		margin-top: 120px;
+		background-size: 40px 16px;
+		position: absolute;
+	}
+	
+	a#completelogo {
+		background: url(../img/michaelotte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 0px;
+		position: absolute;
+		background-size: 185px 37px;
+		opacity: 0;
+		z-index: 1000;
+		margin-top: 30px;
+	}
+	
+	div#logo {
+		background: url(../img/motte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 116px;
+		position: relative;
+		background-size: 116px 37px;
+		margin-left: 33%;
+		margin-top: 24%;
+	}
+}
+
+/** iPhone 5: **/
+@media screen and (device-aspect-ratio: 40/71) {
+	nav {
+		text-align: center;
+		margin-top: 40px;
+	}
+
+	div#otter {
+		background: url(../img/otter.png) no-repeat 0 0;
+		height: 16px;
+		width: 40px;
+		margin-left: 43%;
+		margin-top: 120px;
+		background-size: 40px 16px;
+		position: absolute;
+	}
+	
+	a#completelogo {
+		background: url(../img/michaelotte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 0px;
+		position: absolute;
+		background-size: 185px 37px;
+		opacity: 0;
+		z-index: 1000;
+		margin-top: 30px;
+	}
+	
+	div#logo {
+		background: url(../img/motte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 116px;
+		position: relative;
+		background-size: 116px 37px;
+		margin-left: 33%;
+		margin-top: 24%;
+	}
+}
+
+/** iPad: **/
+@media screen and (device-aspect-ratio: 3/4) {
+	nav {
+		text-align: center;
+		margin-top: 40px;
+	}
+
+	div#otter {
+		background: url(../img/otter.png) no-repeat 0 0;
+		height: 16px;
+		width: 40px;
+		margin-left: 43%;
+		margin-top: 120px;
+		background-size: 40px 16px;
+		position: absolute;
+	}
+	
+	a#completelogo {
+		background: url(../img/michaelotte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 0px;
+		position: absolute;
+		background-size: 185px 37px;
+		opacity: 0;
+		z-index: 1000;
+		margin-top: 30px;
+	}
+	
+	div#logo {
+		background: url(../img/motte.gif) no-repeat 0 0;
+		height: 37px;
+		width: 116px;
+		position: relative;
+		background-size: 116px 37px;
+		margin-left: 33%;
+		margin-top: 24%;
+	}
+}
+
+/*** Mobile Specific Tags End ***/

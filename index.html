@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		<link rel="icon" type="image/png" href="http://michaelotte.com/favicon.ico">
+		<link rel="icon" type="image/png" href="http://michaelotte.com/favicon.png">
 		<link rel="apple-touch-startup-image" href="http://michaelotte.com/startup.png">
 		<link rel="apple-touch-icon" href="http://michaelotte.com/touch-icon-iphone.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="http://michaelotte.com/touch-icon-iphone-retina.png">
@@ -129,33 +129,38 @@
 								setTimeout(function(){
 									$('#main_photo').animate({'opacity':'0'},800);
 									$('#contact_photo').css({'display':'block'});
-									$('#contact_photo').animate({'opacity':'1'},500);
 								}, 1000);
 								setTimeout(function(){
 									$('#main_photo').css({'display':'none'});
+									$('#contact_photo').animate({'opacity':'1'},500);
 								}, 1800);
 							}
 							else if(biodisplay != 'none'){
 								$('#me_photo').animate({'opacity':'0'},500);
 								$('#me_photo').css({'display':'none'});
 								setTimeout(function(){
-									$('#contact_photo').css({'display':'block'});
-									$('#contact_photo').animate({'opacity':'1'},500);
+									$('#contact_photo').css({'display':'block'});	
 								},500);
+								setTimeout(function(){
+									$('#contact_photo').animate({'opacity':'1'},500);
+								},1000)
 								$('section#bio').animate({'opacity':'0'});
 								$('section#bio').css({'display':'none'});
 							}
 							else if(resumedisplay != 'none'){
 								setTimeout(function(){
-									$('#contact_photo').css({'display':'block'});
-									$('#contact_photo').animate({'opacity':'1'},500);
+									$('#contact_photo').css({'display':'block'});	
 								},500);
+								setTimeout(function(){
+									$('#contact_photo').animate({'opacity':'1'},500);
+								},1000)
 								$('section#resume').animate({'opacity':'0'});
 								$('section#resume').css({'display':'none'});
 							}
 							var specificId = 'section#'+this.id;
 							$(specificId).css({'display':'block'});
-							$(specificId).animate({'opacity':'1'});
+							$(specificId).animate({'opacity':'1'},1000);
+							
 							break;
 							
 						case 'home':
@@ -222,16 +227,40 @@
 							break;
 					}
 				});
-
 				
-				$('#sendMessage').click(function(){
-					$('#message_outcome').append('<aside id="message_alert">Message sent successfully!</aside>');
-					$('#message_alert').animate({'opacity':'1'});
-				});
+				$('#send_message').click(function(){
+					var name = $('#name').val();
+					var subject = $('#subject').val();
+					var email = $('#email').val();
+					var message = $('#message').val();
+					var email_check = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i;
 					
-			});
+					if(!email_check.test(email)){
+						$('#email_check').animate({'opacity':'1'});
+						end();
+					}
+					$.ajax({
+						type: "POST",
+						url: "contact.php",
+						data: {name:name, subject:subject, email:email, message:message}
+					}).done(function(responseText){
+						if(responseText=='success'){
+							var name = $('#name').val('');
+							var subject = $('#subject').val('');
+							var email = $('#email').val('');
+							var message = $('#message').val('');
+							$('#email_check').animate({'opacity':'0'});
+							$('#message_alert').animate({'opacity':'1'});
+							setTimeout(function(){
+								$('#message_alert').animate({'opacity':'0'});
+							},10000);
+						}
+					});
+				});	
+		});
+
 			
-			
+				
 		</script>
 	</head>
 	
@@ -264,11 +293,17 @@
 		<section class="content" id="home"></section>
 		<section class="content" id="bio">
 			<img  id="me_spot" >
-			<p class="text">Hello!  My name is Michael Otte and I am a web developer, perfectionist, and algorithm enthusiast.  I love programming web applications and sites using HTML5+CSS3, Javascript, JQuery, and PHP with MySQL.  I have been coding since I was 10 years old and have been working as a freelance programmer for small/boutique businesses, organizations/clubs, and individuals.  I have also created social networks with a MVC framework and architecture, with UI creation after direct UX research.
+			<p class="text">Hello!  My name is Michael Otte and I am a travel-loving, anthropology-studying, immunology-researching, animal-loving <strong>web developer</strong> who is also a perfectionist, lightning-fast learner, and an algorithm enthusiast.<br /><br />
+			
+			 I love programming web applications and sites using <strong>HTML5+CSS3</strong>, <strong>Javascript</strong>, <strong>JQuery</strong>, and <strong>PHP with MySQL</strong>.  <u>Strict</u>, <u>intentioned</u>, and <u>conscientious</u> coding is vital.  I always code with a purpose.<br /><br />
+			 
+			 I have been programming since I was 10 years old and have been working as a <strong>freelance programmer</strong> for small/boutique businesses, organizations/clubs, and individuals.  I create web projects from start to finish, starting with photoshop and HTML mockups to completion and maintenance.  All proceeds have gone to charities like <a class="subtle_link" href="http://www.jordaninternationalaid.org">Jordan International Aid</a><br /><br />
+			 
+			 I have also created a <strong><i>full-featured, working social network</i></strong> with a MVC framework and architecture in <u><i>3 months</i></u>, with intuitive, minimalist UI after direct UX research.  I believe UI/UX are vital to a good web application and hope to facilitate genuine interaction between all people through technology.<br /><br />
+			 
+			When I'm not coding, I love to play guitar, rock climb, surf, let my mind wander, and enjoy the little things in life.<br />
+			
 				
-				Hello!  My name is Michael Otte and I am a web developer, perfectionist, and algorithm enthusiast.  I love programming web applications and sites using HTML5+CSS3, Javascript, JQuery, and PHP with MySQL.  I have been coding since I was 10 years old and have been working as a freelance programmer for small/boutique businesses, organizations/clubs, and individuals.  I have also created social networks with a MVC framework and architecture, with UI creation after direct UX research.
-				
-				Hello!  My name is Michael Otte and I am a web developer, perfectionist, and algorithm enthusiast.  I love programming web applications and sites using HTML5+CSS3, Javascript, JQuery, and PHP with MySQL.  I have been coding since I was 10 years old and have been working as a freelance programmer for small/boutique businesses, organizations/clubs, and individuals.  I have also created social networks with a MVC framework and architecture, with UI creation after direct UX research.
 			</p>
 		</section>
 		<section class="content" id="resume">
@@ -276,16 +311,16 @@
 			<div id="resume_img"></div>
 		</section>
 		<section class="content" id="contact">
-			<img id="contact_spot">
+			<div id="contact_spot"></div>
 		
-				<div id="message_outcome"></div>
-			
-				<input type="text" name="name" placeholder="name"></input><br />
-				<input type="text" name="subject" placeholder="subject"></input><br />
-				<input type="text" name="email" placeholder="email"></input><br />
-				<textarea name="message" placeholder="message"></textarea><br />
-				<button id="sendMessage">send message</button>
-			
+				<div id="message_form">
+					<aside id="message_alert">Message&nbspsent&nbspsuccessfully!</aside>
+					<input type="text" id="name" name="name" placeholder="name"></input><br />
+					<input type="text" id="subject" name="subject" placeholder="subject"></input><br />
+					<input type="text" id="email" name="email" placeholder="email"></input><aside id="email_check"><i>&nbsp X</i> invalid email</aside><br />
+					<textarea name="message" id="message" placeholder="message"></textarea><br />
+					<button id="send_message">send message</button>
+				</div>
 		</section>
 		
 		<aside></aside>
