@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Michael Otte - Web Developer</title>
+		<meta name="description" content="Michael Otte resume" />
+		<meta name="keywords" content="Michael Otte, web design, web development, web applications, HTML, CSS, PHP, Javascript, JQuery, web applications, social networks, web sites, UI, UX, design" />
+		<meta name="viewport" content="width=device-width">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<link rel="apple-touch-startup-image" href="http://michaelotte.com/startup.png">
+		<link rel="apple-touch-icon" href="http://michaelotte.com/touch-icon-iphone.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="http://michaelotte.com/touch-icon-iphone-retina.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="http://michaelotte.com/touch-icon-ipad.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="http://michaelotte.com/touch-icon-ipad-retina.png">
+		
+		<!--[if IE]><![endif]--> <!-- this speeds up load/render for IE by forcing entire CSS download first -->
+		<!-- the order of stylesheets here are vital because HTML loads top down -->
+		<link rel="stylesheet" type="text/css" href="external/css/style.css" />
+		<link rel="stylesheet" href="external/css/handheld.css" type="text/css" media="Screen" /> <!-- the capital S of the media attribute allows windows phones to use the following handheld sytlesheet - These are for windows phones -->
+		<link rel="stylesheet" href="external/css/handheld.css" type="text/css" media="handheld" />
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.link#home').css({'color':'#1ADB40','text-decoration':'overline'});
+			
+			
+			/** With a click of one of the sections, there is animation **/
+				$('span.link').click(function(){
+					/** clear active highlighting **/
+					$('.link#home').css({'color':'#888','text-decoration':'none'});
+					$('.link#bio').css({'color':'#888','text-decoration':'none'});
+					$('.link#resume').css({'color':'#888','text-decoration':'none'});
+					$('.link#contact').css({'color':'#888','text-decoration':'none'});
+					
+					/** Set new active highlighting **/
+					var highlight = '.link#'+this.id;
+					$(highlight).css({'color':'#1ADB40','text-decoration':'overline'});
+				
+					var homedisplay = $('#main_photo').css('display');
+					var biodisplay = $('section#bio').css('display');
+					var resumedisplay = $('section#resume').css('display');
+					var contactdisplay = $('section#contact').css('display');
+					
+					if(this.id != 'home'){
+						$('#logo').animate({'margin-top':'0','margin-left':'0'},800);
+						$('#otter').animate({'margin-top':'25px'},720);
+						setTimeout(function(){
+							$('#logo').animate({'opacity':'0'},1000);
+							$('#completelogo').animate({'opacity':'1','width':'264px'},1000);
+						},800);
+					}
+					
+					/* determine page destination then origin to do appropriate animations */
+					
+					switch (this.id) { // first determine page destination of navigation
+						case 'bio':
+							if(homedisplay != 'none'){ // originating from home so a little special
+								$('#main_photo').css({'position':'absolute'});
+								$('#main_photo').animate({'width':'250px', 'margin-left':'20px'},800);
+								setTimeout(function(){
+									$('#main_photo').animate({'opacity':'0'},800);
+									$('#me_photo').css({'display':'block'});
+									$('#me_photo').animate({'opacity':'1'},700);
+								}, 1000);
+								setTimeout(function(){
+									$('#main_photo').css({'display':'none'});
+								}, 1800);
+							}
+							else if(resumedisplay != 'none'){
+								$('#me_photo').css({'display':'block'});
+								setTimeout(function(){$('#me_photo').animate({'opacity':'1'},700);},700);
+								$('section#resume').animate({'opacity':'0'});
+								$('section#resume').css({'display':'none'});
+							}
+							else if(contactdisplay != 'none'){
+								$('#contact_photo').animate({'opacity':'0'},700);
+								$('#contact_photo').css({'display':'none'});
+								$('#me_photo').css({'display':'block'});
+								setTimeout(function(){$('#me_photo').animate({'opacity':'1'},700);},700);
+								$('section#contact').animate({'opacity':'0'});
+								$('section#contact').css({'display':'none'});
+							}
+							var specificId = 'section#'+this.id;
+							$(specificId).css({'display':'block'});
+							$(specificId).animate({'opacity':'1'});
+							
+							break;
+						case 'resume':
+							if(homedisplay != 'none'){
+								$('#main_photo').animate({'height':'0','opacity':'0'},800);
+								setTimeout(function(){
+									$('#main_photo').css({'display':'none'});
+								}, 800);				
+							}
+							else if(biodisplay != 'none'){
+								$('#me_photo').animate({'opacity':'0'},700);
+								$('#me_photo').css({'display':'none'});
+								$('section#bio').animate({'opacity':'0'});
+								$('section#bio').css({'display':'none'});
+							}
+							else if(contactdisplay != 'none'){
+								$('#contact_photo').animate({'opacity':'0'},700);
+								$('#contact_photo').css({'display':'none'});
+								$('section#contact').animate({'opacity':'0'});
+								$('section#contact').css({'display':'none'});
+							}
+							var specificId = 'section#'+this.id;
+							$(specificId).css({'display':'block'});
+							$(specificId).animate({'opacity':'1'});
+							break;
+							
+						case 'contact':
+							if(homedisplay != 'none'){
+								$('#main_photo').css({'position':'absolute'});
+								$('#main_photo').animate({'width':'250px', 'margin-left':'20px'},800);
+								setTimeout(function(){
+									$('#main_photo').animate({'opacity':'0'},800);
+									$('#contact_photo').css({'display':'block'});
+									$('#contact_photo').animate({'opacity':'1'},500);
+								}, 1000);
+								setTimeout(function(){
+									$('#main_photo').css({'display':'none'});
+								}, 1800);
+							}
+							else if(biodisplay != 'none'){
+								$('#me_photo').animate({'opacity':'0'},500);
+								$('#me_photo').css({'display':'none'});
+								setTimeout(function(){
+									$('#contact_photo').css({'display':'block'});
+									$('#contact_photo').animate({'opacity':'1'},500);
+								},500);
+								$('section#bio').animate({'opacity':'0'});
+								$('section#bio').css({'display':'none'});
+							}
+							else if(resumedisplay != 'none'){
+								setTimeout(function(){
+									$('#contact_photo').css({'display':'block'});
+									$('#contact_photo').animate({'opacity':'1'},500);
+								},500);
+								$('section#resume').animate({'opacity':'0'});
+								$('section#resume').css({'display':'none'});
+							}
+							var specificId = 'section#'+this.id;
+							$(specificId).css({'display':'block'});
+							$(specificId).animate({'opacity':'1'});
+							break;
+							
+						case 'home':
+							if(biodisplay != 'none'){ // if originating from bio page
+								$('#me_photo').animate({'opacity':'0'},800);
+								setTimeout(function(){
+									$('#me_photo').css({'display':'none'});	
+								}, 800);
+								$('#main_photo').css({'position':'relative'});
+								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
+								setTimeout(function(){
+									$('#main_photo').css({'display':'block'});
+									$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
+									$('#otter').animate({'margin-top':'100px'},720);
+								}, 1000);
+								setTimeout(function(){
+									$('#main_photo').animate({'height':'300px','opacity':'1'},800);
+									$('#completelogo').animate({'opacity':'0','width':'0'},500);
+								}, 1800);
+								setTimeout(function(){
+									$('#logo').animate({'opacity':'1'},1000);
+								},2600);
+								$('section#bio').animate({'opacity':'0'});
+								$('section#bio').css({'display':'none'});
+							}
+							else if(resumedisplay != 'none'){
+								$('#main_photo').css({'position':'relative'});
+								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
+								$('#main_photo').css({'display':'block'});
+								$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
+								$('#otter').animate({'margin-top':'100px'},720);
+								setTimeout(function(){
+									$('#main_photo').animate({'height':'300px','opacity':'1'},800);
+									$('#completelogo').animate({'opacity':'0','width':'0'},500);
+								}, 800);
+								setTimeout(function(){
+									$('#logo').animate({'opacity':'1'},1000);
+								},1600);
+								$('section#resume').animate({'opacity':'0'});
+								$('section#resume').css({'display':'none'});
+							}
+							else if(contactdisplay != 'none'){
+								$('#contact_photo').animate({'opacity':'0'},800);
+								setTimeout(function(){
+									$('#contact_photo').css({'display':'none'});	
+								}, 800);
+								$('#main_photo').css({'position':'relative'});
+								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
+								setTimeout(function(){
+									$('#main_photo').css({'display':'block'});
+									$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
+									$('#otter').animate({'margin-top':'100px'},720);
+								}, 1000);
+								setTimeout(function(){
+									$('#main_photo').animate({'height':'300px','opacity':'1'},800);
+									$('#completelogo').animate({'opacity':'0','width':'0'},500);
+								}, 1800);
+								setTimeout(function(){
+									$('#logo').animate({'opacity':'1'},1000);
+								},2600);
+								$('section#contact').animate({'opacity':'0'});
+								$('section#contact').css({'display':'none'});
+							}
+							break;
+					}
+				});
+				
+				$('#sendMessage').click(function(){
+					$('#message_outcome').append('<aside id="message_alert">Message sent successfully!</aside>');
+					$('#message_alert').animate({'opacity':'1'});
+				});
+					
+			});
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<h1 style="display: none;">Web developer with a passion to connect people through technology.</h1>
+		<header>
+			<hr id="bar" />
+			<a id="github" href="https://github.com/otterpop13"></a>
+			<a id="linkedin" href="http://www.linkedin.com/in/michaelotte13/"></a>
+			<div id="otter"></div>
+			<a id="completelogo" href=""></a>
+			<div id="logo"></div>
+			
+		</header>
+		<nav>
+			<span class="link" id="home">home</span>
+			<span class="link" id="bio">bio</span>
+			<span class="link" id="resume">resume</span>
+			<span class="link" id="contact">contact</span>
+		</nav>
+		
+		<hr id="line" />
+		
+		<center><div id="main_photo"></div></center>
+		<div id="me_photo"></div>
+		<div id="resume_doc"></div>
+		<div id="contact_photo"></div>
+		
+		<section class="content" id="home"></section>
+		<section class="content" id="bio">
+			<div id="me_spot"></div>
+			Michael Otte
+		</section>
+		<section class="content" id="resume">
+			<a id="resumedl" href="resume.pdf" download="michael.otte.resume">Download my resume</a>	
+			<div id="resume_img"></div>
+		</section>
+		<section class="content" id="contact">
+			<div id="contact_spot"></div>
+			<div id="message_outcome"></div>
+			
+				<input type="text" name="name" placeholder="name"></input><br />
+				<input type="text" name="subject" placeholder="subject"></input><br />
+				<input type="text" name="email" placeholder="email"></input><br />
+				<textarea name="message" placeholder="message"></textarea><br />
+				<button id="sendMessage">send message</button>
+			
+		</section>
+		
+		<aside></aside>
+		<footer></footer>
+	</body>
+</html>
