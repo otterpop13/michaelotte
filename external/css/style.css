@@ -6,6 +6,7 @@ body {
 
 nav {
 	text-align: center;
+
 }
 
 input[type=text], input[type=password], input[type=date], input[type=time], textarea {
@@ -90,19 +91,27 @@ a#linkedin:hover {
 }
 
 div#otter {
-	background: url(../img/otter.png) no-repeat 0 0;
 	height: 35px;
-	width: 80px;
-	margin-left: 43%;
+	overflow:hidden;
 	margin-top: 100px;
-	background-size: 80px 32px;
+ 	margin-bottom: -140px;
+	position: relative;
+}
+
+div#otter_image {
 	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+	background: url(../img/otter.png) no-repeat 0 0;
+	background-size: 80px 31px;
+	width: 80px;
+	height: 31px;
 }
 
 a#completelogo {
 	background: url(../img/michaelotte.gif) no-repeat 0 0;
 	height: 63px;
-	width: 0px;
+	width: 0;
 	position: absolute;
 	background-size: 264px 53px;
 	opacity: 0;
@@ -110,13 +119,21 @@ a#completelogo {
 }
 
 div#logo {
+	height: 63px;
+	position: relative;
+	overflow: hidden;
+	margin-top: 20%;
+}
+
+div#motte {
 	background: url(../img/motte.gif) no-repeat 0 0;
+	background-size: 166px 53px;
 	height: 63px;
 	width: 176px;
-	position: relative;
-	background-size: 166px 53px;
-	margin-left: 38%;
-	margin-top: 20%;
+	position: absolute;
+	margin-left: -88px;
+	//bottom: -250px;
+	left: 50%;
 }
 
 span.link {

@@ -54,11 +54,13 @@
 					var resumedisplay = $('section#resume').css('display');
 					var contactdisplay = $('section#contact').css('display');
 					
-					if(this.id != 'home'){
-						$('#logo').animate({'margin-top':'0','margin-left':'0'},800);
+					if(this.id != 'home'){ // if destination is not home
+						$('#completelogo').css({'margin-top':'87px'});
 						$('#otter').animate({'margin-top':'25px'},720);
+						$('#logo').animate({'margin-top':'85px'},800);
+						$('#motte').animate({'left':'88px'},800);
 						setTimeout(function(){
-							$('#logo').animate({'opacity':'0'},1000);
+							$('#logo').animate({'opacity':'0'},800);
 							$('#completelogo').animate({'opacity':'1','width':'264px'},1000);
 						},800);
 					}
@@ -166,14 +168,16 @@
 						case 'home':
 							if(biodisplay != 'none'){ // if originating from bio page
 								$('#me_photo').animate({'opacity':'0'},800);
+								$('#completelogo').animate({'width':'0'});
 								setTimeout(function(){
-									$('#me_photo').css({'display':'none'});	
+									$('#me_photo').css({'display':'none'});
 								}, 800);
 								$('#main_photo').css({'position':'relative'});
 								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
 								setTimeout(function(){
 									$('#main_photo').css({'display':'block'});
-									$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
+									$('#logo').animate({'margin-top':'20%'},720);
+									$('#motte').animate({'left':'50%'});
 									$('#otter').animate({'margin-top':'100px'},720);
 								}, 1000);
 								setTimeout(function(){
@@ -187,15 +191,20 @@
 								$('section#bio').css({'display':'none'});
 							}
 							else if(resumedisplay != 'none'){
+								$('#completelogo').animate({'width':'0'});
 								$('#main_photo').css({'position':'relative'});
 								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
 								$('#main_photo').css({'display':'block'});
-								$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
-								$('#otter').animate({'margin-top':'100px'},720);
+								$('#motte').css({'left':'50%'});
 								setTimeout(function(){
 									$('#main_photo').animate({'height':'300px','opacity':'1'},800);
-									$('#completelogo').animate({'opacity':'0','width':'0'},500);
+									$('#completelogo').animate({'opacity':'0'},500);
+									$('#logo').animate({'margin-top':'20%'},720);
+									$('#otter').animate({'margin-top':'100px'},720);
 								}, 800);
+								setTimeout(function(){
+									
+								},1000);
 								setTimeout(function(){
 									$('#logo').animate({'opacity':'1'},1000);
 								},1600);
@@ -203,6 +212,7 @@
 								$('section#resume').css({'display':'none'});
 							}
 							else if(contactdisplay != 'none'){
+								$('#completelogo').animate({'width':'0'});
 								$('#contact_photo').animate({'opacity':'0'},800);
 								setTimeout(function(){
 									$('#contact_photo').css({'display':'none'});	
@@ -211,12 +221,13 @@
 								$('#main_photo').css({'width':'80%', 'margin-left':'0px'});
 								setTimeout(function(){
 									$('#main_photo').css({'display':'block'});
-									$('#logo').animate({'margin-top':'20%','margin-left':'38%'},800);
+									$('#logo').animate({'margin-top':'20%'},720);
+									$('#motte').animate({'left':'50%'});
 									$('#otter').animate({'margin-top':'100px'},720);
 								}, 1000);
 								setTimeout(function(){
 									$('#main_photo').animate({'height':'300px','opacity':'1'},800);
-									$('#completelogo').animate({'opacity':'0','width':'0'},500);
+									$('#completelogo').animate({'opacity':'0'},500);
 								}, 1800);
 								setTimeout(function(){
 									$('#logo').animate({'opacity':'1'},1000);
@@ -270,9 +281,9 @@
 			<hr id="bar" />
 			<a id="github" href="https://github.com/otterpop13"></a>
 			<a id="linkedin" href="http://www.linkedin.com/in/michaelotte13/"></a>
-			<div id="otter"></div>
+			<div id="otter"><div id="otter_image"></div></div>
 			<a id="completelogo" href=""></a>
-			<div id="logo"></div>
+			<div id="logo"><div id="motte"></div></div>
 			
 		</header>
 		<nav>
