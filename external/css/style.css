@@ -6,7 +6,6 @@ body {
 
 nav {
 	text-align: center;
-
 }
 
 input[type=text], input[type=password], input[type=date], input[type=time], textarea {
@@ -71,6 +70,7 @@ a#github {
 	width: 46px;
 	position: absolute;
 	right: 80px;
+	z-index: 10001;
 }
 
 a#github:hover {
@@ -84,6 +84,7 @@ a#linkedin {
 	width: 46px;
 	position: absolute;
 	right: 20px;
+	z-index: 1001;
 }
 
 a#linkedin:hover {
@@ -344,157 +345,81 @@ input#email {
 @media only screen 
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
-	nav {
-		text-align: center;
-		margin-top: 40px;
-	}
-
 	div#otter {
-		background: url(../img/otter.png) no-repeat 0 0;
-		height: 16px;
-		width: 40px;
-		margin-left: 43%;
-		margin-top: 120px;
-		background-size: 40px 16px;
-		position: absolute;
+		margin-top: 210px;
 	}
 	
+	div#otter_image {
+		display: none;
+	}
+
 	a#completelogo {
-		background: url(../img/michaelotte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 0px;
-		position: absolute;
 		background-size: 185px 37px;
-		opacity: 0;
-		z-index: 1000;
-		margin-top: 30px;
+		top: -62px;
 	}
 	
 	div#logo {
-		background: url(../img/motte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 116px;
-		position: relative;
-		background-size: 116px 37px;
-		margin-left: 33%;
-		margin-top: 24%;
+		margin-bottom: 5px;
 	}
 }
 
 /** iPhone < 5: **/
 @media screen and (device-aspect-ratio: 2/3) {
-	nav {
-		text-align: center;
-		margin-top: 40px;
+	div#otter {
+		margin-top: 210px;
 	}
 
-	div#otter {
-		background: url(../img/otter.png) no-repeat 0 0;
-		height: 16px;
-		width: 40px;
-		margin-left: 43%;
-		margin-top: 120px;
-		background-size: 40px 16px;
-		position: absolute;
+	div#otter_image {
+		display: none;
 	}
-	
+
 	a#completelogo {
-		background: url(../img/michaelotte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 0px;
-		position: absolute;
 		background-size: 185px 37px;
-		opacity: 0;
-		z-index: 1000;
-		margin-top: 30px;
+		top: -62px;
 	}
 	
 	div#logo {
-		background: url(../img/motte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 116px;
-		position: relative;
-		background-size: 116px 37px;
-		margin-left: 33%;
-		margin-top: 24%;
+		margin-bottom: 5px;
 	}
 }
 
 /** iPhone 5: **/
 @media screen and (device-aspect-ratio: 40/71) {
-	nav {
-		text-align: center;
-		margin-top: 40px;
+	div#otter {
+		margin-top: 210px;
 	}
 
-	div#otter {
-		background: url(../img/otter.png) no-repeat 0 0;
-		height: 16px;
-		width: 40px;
-		margin-left: 43%;
-		margin-top: 120px;
-		background-size: 40px 16px;
-		position: absolute;
+	div#otter_image {
+		display: none;
 	}
-	
+
 	a#completelogo {
-		background: url(../img/michaelotte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 0px;
-		position: absolute;
 		background-size: 185px 37px;
-		opacity: 0;
-		z-index: 1000;
-		margin-top: 30px;
+		top: -62px;
 	}
 	
 	div#logo {
-		background: url(../img/motte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 116px;
-		position: relative;
-		background-size: 116px 37px;
-		margin-left: 33%;
-		margin-top: 24%;
+		margin-bottom: 5px;
 	}
 }
 
 /** iPad: **/
 @media screen and (device-aspect-ratio: 3/4) {
-	nav {
-		text-align: center;
-		margin-top: 40px;
-	}
-
 	div#otter {
-		background: url(../img/otter.png) no-repeat 0 0;
-		height: 16px;
-		width: 40px;
-		margin-left: 43%;
-		margin-top: 120px;
-		background-size: 40px 16px;
-		position: absolute;
+		margin-top: 210px;
 	}
 	
+	div#otter_image {
+		display: none;
+	}
+
 	a#completelogo {
-		background: url(../img/michaelotte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 0px;
-		position: absolute;
 		background-size: 185px 37px;
-		opacity: 0;
-		z-index: 1000;
-		margin-top: 30px;
+		top: -62px;
 	}
 	
 	div#logo {
-		background: url(../img/motte.gif) no-repeat 0 0;
-		height: 37px;
-		width: 116px;
-		position: relative;
-		background-size: 116px 37px;
-		margin-left: 33%;
-		margin-top: 24%;
+		margin-bottom: 5px;
 	}
 }
 

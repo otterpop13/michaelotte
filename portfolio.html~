@@ -19,22 +19,10 @@
 		<!-- the order of stylesheets here are vital because HTML loads top down -->
 		<link rel="stylesheet" type="text/css" href="external/css/style.css" />
 		
-		<script type="text/javascript">
-		  $(document).ready(function(){
-		      $('.accordion').click(function(){
-		          $(this.id).animate({'height':'100%'});
-		          
-		      }
-		  });
-		</script>
-
 	</head>
 	
 	<body>
-	  <div class="center">
-	    <div id="ivynexus" class="accordion"><div id="in"><img src="external/img/inlogo.png" /></div></div>
-	    <div id="ocf" class="accordion"><div id="dartocf"><img src="external/img/dartocf.png" /></div></div>
-	  </div>
+	  
 	</body>
 	
 </html>
