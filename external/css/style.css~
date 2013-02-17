@@ -336,53 +336,6 @@ input#email {
 	margin-left: 40%;
 }
 
-.center {
-    position: relative;
-    padding: 10px;
-    display: inline-block;
-}
-
-.accordion {
-    display: inline-block;
-    border: 3px solid #888;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -o-border-raidus: 15px;
-    background: #ddd;
-}
-
-.accordion:hover {
-    border: 3px solid #555;
-    background: #f0f0f0;
-}
-
-#in {
-    background: url(../img/inlogo.png) no-repeat center center;
-    background-size: 90%;
-    height: 300px;
-    width: 300px;
-    opacity: .7;
-    cursor: pointer;
-}
-
-#in:hover {
-    opacity: 1;
-}
-
-#dartocf {
-    background: url(../img/dartocf.png) no-repeat center center;
-    background-size: 90%;
-    height: 300px;
-    width: 300px;
-    opacity: .5;
-    cursor: pointer;
-}
-
-#dartocf:hover {
-    opacity: 1;
-}
-
 
 /*** End Specific tags ***/
 
