@@ -21,7 +21,20 @@
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){				
+			$(document).ready(function(){
+				/* this adds tips */
+				$('.tipit').hover(function(){
+					var specific_link = "#"+this.id+"_tip";
+					$(specific_link).stop(true,true).fadeToggle();
+				}).mousemove(function(e){
+					var specific_link = "#"+this.id+"_tip";
+					var tipwidth = $(specific_link).css('width').replace(/\D/g,'');
+					var leftit = e.pageX-tipwidth+10;
+					var topit = e.pageY+15;
+				   	$('.tip').offset({left: leftit, top: topit});
+				});
+				
+				/* this gives a nice hover effect on the links */
 				$('span.link').hover(function(){
 					var style = '.link#'+this.id;
 					var verify = $('#current_page').val();
@@ -279,8 +292,10 @@
 		<h1 style="display: none;">Web developer with a passion to connect people through technology.</h1>
 		<header>
 			<hr id="bar" />
-			<a id="github" href="https://github.com/otterpop13"></a>
-			<a id="linkedin" href="http://www.linkedin.com/in/michaelotte13/"></a>
+			<a id="github" class="tipit" href="https://github.com/otterpop13"></a>
+			<div id="github_tip" class="tip">Check out my work in GitHub!</div>
+			<a id="linkedin" class="tipit" href="http://www.linkedin.com/in/michaelotte13/"></a>
+			<div id="linkedin_tip" class="tip">Check out my LinkedIn!</div>
 			<div id="otter"><div id="otter_image"></div></div>
 			<a id="completelogo" href=""></a>
 			<div id="logo"><div id="motte"></div></div>

@@ -63,6 +63,19 @@ button:active {
 
 /*** Specific tags ***/
 
+.tip {
+	display: none;
+	position: absolute;
+	background: #222;
+	padding: 10px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	opacity: 1;
+}
+
 a#github {
 	background: url(../img/github.png) no-repeat 0 0;
 	background-size: 46px 46px;
@@ -84,7 +97,7 @@ a#linkedin {
 	width: 46px;
 	position: absolute;
 	right: 20px;
-	z-index: 1001;
+	z-index: 1002;
 }
 
 a#linkedin:hover {
