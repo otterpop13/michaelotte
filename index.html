@@ -255,7 +255,9 @@
 				/** accordion on resume page **/
 				$('.accordion').hover(function(){
 					var specify = '#'+this.id+'_shelf';
-					$(specify).css({'display':'inline'});
+					var contentwidth = $('.content#resume').css('width');
+					
+					$(specify).css({'display':'inline','width': contentwidth});
 				},function(){
 					var specify = '#'+this.id+'_shelf';
 					$(specify).css({'display':'none'});
@@ -267,7 +269,7 @@
 					var specifyimg = '#'+this.id+'.thumbnail';
 					var check = $(specifyimg).css('opacity');
 					check = Math.round((check*10))/10;
-					
+
 					$('.thumbnail').animate({'width':'100px','height':'auto','opacity':'.9'},100);
 					if(check == '.9'){
 						$(specifyimg).animate({'width':'95%','height':'95%','opacity':'1'},100);
