@@ -252,6 +252,30 @@
 					}
 				});
 				
+				/** accordion on resume page **/
+				$('.accordion').hover(function(){
+					var specify = '#'+this.id+'_shelf';
+					$(specify).css({'display':'inline'});
+				},function(){
+					var specify = '#'+this.id+'_shelf';
+					$(specify).css({'display':'none'});
+				});
+				
+				/** thumbnails in resume page **/
+				$('.thumbnail').click(function(){
+					
+					var specifyimg = '#'+this.id+'.thumbnail';
+					var check = $(specifyimg).css('opacity');
+					check = Math.round((check*10))/10;
+					
+					$('.thumbnail').animate({'width':'100px','height':'auto','opacity':'.9'},100);
+					if(check == '.9'){
+						$(specifyimg).animate({'width':'95%','height':'95%','opacity':'1'},100);
+					}
+					
+				});
+				
+				/** Contacts page **/
 				$('#send_message').click(function(){
 					var name = $('#name').val();
 					var subject = $('#subject').val();
@@ -338,8 +362,35 @@
 			    <div class="center">
 			      <div id="ivynexus" class="accordion">
 				      <a href="http://www.ivynexus.com"><div id="in"></div></a>
+				      
+					  <div id="ivynexus_shelf" class="shelf">
+					  	<hr class="horizontal_divider" />
+					  	<img src="Tour/login.jpg" id="first" class="thumbnail" alt="login"><wbr />
+				      	<img src="Tour/login2.jpg" id="second" class="thumbnail" alt="login2"><wbr />
+				      	<img src="Tour/slideshow.jpg" id="third" class="thumbnail" alt="slideshow"><wbr />
+				      	<img src="Tour/slideshow2.jpg" id="fourth" class="thumbnail" alt="slideshow2"><wbr />
+				      	<img src="Tour/profile.jpg" id="fifth" class="thumbnail" alt="profile"><wbr />
+				      	<img src="Tour/profile2.jpg" id="sixth" class="thumbnail" alt="profile2"><wbr />
+				      	<img src="Tour/schoollisting.jpg" id="seventh" class="thumbnail" alt="schoollisting"><wbr />
+				      	<img src="Tour/schoolwall.jpg" id="eighth" class="thumbnail" alt="schoolwall"><wbr />
+				      	<img src="Tour/members.jpg" id="ninth" class="thumbnail" alt="members"><wbr />
+				      	
+				      	<img src="Tour/hovermap2.jpg" id="tenth" class="thumbnail" alt="hovermap2"><wbr />
+				      	<img src="Tour/hoversvg.jpg" id="elventh" class="thumbnail" alt="hoversvg"><wbr />
+				      	<img src="Tour/contact.jpg" id="twelfth" class="thumbnail" alt="contact"><wbr />
+				      	<img src="Tour/calendar.jpg" id="thirteenth" class="thumbnail" alt="calendar"><wbr />
+				      	<img src="Tour/eventpopup.jpg" id="fourteenth" class="thumbnail" alt="eventpopup"><wbr />
+		
+				      	<img src="Tour/listings.jpg" id="fifteenth" class="thumbnail" alt="listings"><wbr />
+				      	<img src="Tour/messaging.jpg" id="sixteenth" class="thumbnail" alt="messaging"><wbr />
+				      	
+				      	
+				      	
+				      </div>
 			      </div>
+			      
 			    </div>
+			    
 		
 			    <div class="center">
 			      <div id="ocf" class="accordion">
