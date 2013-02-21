@@ -1,0 +1,148 @@
+body {
+	text-align: center;
+}
+
+code {
+	color: #eee;
+	background: #333;
+	font-size: 15px;
+	padding: 5px;
+}
+
+a {
+	font-family: 'helvetica neue', helvetica;
+	font-size: 25px
+	font-weight: 500;
+	color: #29ac43;
+}
+
+a:hover {
+	color: #0f8827;
+}
+
+a:active {
+	color: #555;
+}
+
+#navbar {
+	font-family: 'helvetica neue', helvetica;
+	color: #1ADB40;
+}
+
+#navbar:hover {
+	color: #0f8827;
+}
+
+#navbar:active {
+	color: #1eba3d;
+}
+
+.title_divide {
+	box-shadow: #000 0px -5px 30px 1px;
+	-moz-box-shadow: #000 0px -5px 30px 1px;
+	-webkit-box-shadow: #000 0px -5px 30px 1px;
+	border-top: 1px solid #fff;
+	border-bottom: 0px solid #fff;
+	border-left: 0px solid #fff;
+	border-right: 0 solid #fff;
+	margin-bottom: -8px;
+}
+
+.hor_div_top {
+	border-top: 3px #888 dashed;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	//box-shadow: #000 0px -5px 10px;
+}
+
+.hor_div_bot {
+	border-top: 3px #888 dashed;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	box-shadow: #000 0px 5px 10px;
+	-moz-box-shadow: #000 0px 5px 10px;
+	-webkit-box-shadow: #000 0px 5px 10px;
+}
+
+#title {
+	color: #777;
+	font-family: 'helvetica neue', helvetica;
+	font-size: 30px;
+	font-weight: lighter;
+	margin-top: 15px;
+}
+
+#title_bold {
+	color: #777;
+	font-family: 'helvetica neue', helvetica;
+	font-size: 30px;
+	font-weight: 500;
+	display: inline-block;
+	padding: 0px;
+}
+
+.recessed_pane {
+	background-color: rgba(130,130,130,0.5);
+	font-family: 'helvetica neue', helvetica;
+	font-size: 25px
+	font-weight: 500;
+	padding-top: 10px;
+	padding-bottom: 35px;
+	box-shadow: inset #777 0px 0px 10px;
+}
+
+#vspace_it{
+	background-color: rgba(130,130,130,0.5);
+	font-family: 'helvetica neue', helvetica;
+	font-size: 25px
+	font-weight: 500;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	box-shadow: inset #777 0px 0px 10px;	
+}
+
+.code_block {
+	background-color: #333;
+	width: 50px;
+	padding: 10px;
+
+}
+
+.tipit {
+	font-size: 20px;
+	display: inline-block;
+	padding: 20px;
+	cursor: pointer;
+	color: #333;
+}
+
+.tipit:hover {
+	color: #777;	
+}
+
+.tip {
+	display: none;
+	position: absolute;
+	background: #333;
+	padding: 10px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+}
+
+.hor_links {
+	display: inline-block;
+	padding: 20px;
+	cursor: pointer;
+	font-weight: normal;
+	font-size: 20px;
+	color: #333;
+}
+
+.hor_links:hover {
+	color: #777;
+}
