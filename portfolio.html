@@ -18,34 +18,223 @@
 		<!--[if IE]><![endif]--> <!-- this speeds up load/render for IE by forcing entire CSS download first -->
 		<!-- the order of stylesheets here are vital because HTML loads top down -->
 		<link rel="stylesheet" type="text/css" href="external/css/style.css" />
-		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
 		  $(document).ready(function(){
-		      $('.accordion').click(function(){
-		          $(this.id).animate({'height':'100%'});
+		  		setTimeout(function(){
+			  		$('#attnpopup').css({'display':'inline-block'});
+			  		$('#attnpopup').animate({'opacity':'1'},300);
+			  	},300);
+		  		
+		  		$('.slide_container').hover(function(){
+			  		$('#scrollLeft').css({'display':'inline-block'});
+			  		$('#scrollRight').css({'display':'inline-block'});
+		  		},function(){
+			  		$('#scrollLeft').css({'display':'none'});
+			  		$('#scrollRight').css({'display':'none'});
+		  		});
+		  
+		  		var scrolling = false;
+		  		$("#scrollLeft").bind("mouseover", function(event) {
+				    scrolling = true;
+				    scrollContent("left");
+				}).bind("mouseout", function(event) {
+				    scrolling = false;
+				});
+				
+				
+				$("#scrollRight").bind("mouseover", function(event) {
+				    scrolling = true;
+				    scrollContent("right");
+				}).bind("mouseout", function(event) {
+				    scrolling = false;
+				});
+				
+				function scrollContent(direction) {
+				    var amount = (direction === "left" ? "-=3px" : "+=3px");
+				    $(".slide_container_inner").animate({
+				        scrollLeft: amount
+				    }, 1, function() {
+				        if (scrolling) {
+				            scrollContent(direction);
+				        }
+				    });
+				}
+		  
+		  
+		  	/* this adds tips */
+				$('.tipit').hover(function(){
+					var specific_link = "#"+this.id+"_tip";
+					$(specific_link).stop(true,true).fadeToggle();
+				}).mousemove(function(e){
+					var specific_link = "#"+this.id+"_tip";
+					var tipwidth = $(specific_link).css('width').replace(/\D/g,'');
+					var leftit = e.pageX-tipwidth+10;
+					var topit = e.pageY+15;
+				   	$('.tip').offset({left: leftit, top: topit});
+				});
+			
+		  
+		      $('.square').click(function(){
+		      		$('#attnpopup').css({'display':'none'});
+		      		var specify = '#'+this.id;
+		      		$(specify).animate({'left':'0', 'margin-left':'10px'});
+		      		var cont_specify = '#'+this.id+'_container';
+		      		setTimeout(function(){
+		      			$('.slide_container').css({'display':'inline-block'});
+		      			$('.display_box').css({'display':'inline-block'});
+		      			$('.display_box').animate({'opacity':'1'});
+		      			$(cont_specify).css({'opacity':'1'});
+		      			$(cont_specify).animate({'width':'100%'});
+		      		},500);
 		          
-		      }
+		      });
+		      
+		      $('.thumbnail').click(function(){
+		      	 $('.screenshot').css({'display':'none','opacity':'0'});
+			     var bind = '#'+this.id+'.screenshot';
+			     $(bind).css({'display':'inline-block'});
+			     $(bind).animate({'opacity':'1'}); 
+		      });
 		  });
 		</script>
 
 	</head>
 	
-	<body>
-	  <center>
+	<body class="center">
+		<a id="top_left_logo" href="/"></a>
+		<a id="github" class="tipit" href="https://github.com/otterpop13"></a>
+			<div id="github_tip" class="tip">Check out my work on GitHub!</div>
+			<a id="linkedin" class="tipit" href="http://www.linkedin.com/in/michaelotte13/"></a>
+			<div id="linkedin_tip" class="tip">Check out my LinkedIn!</div>
+		
+		<div id="top_cushion"></div>
+		<nav>
+			<div id="title"><div id="title_bold">Portfolio</div> Sample</div><br />
+			<a class="link" id="" href="/">home</a>
+			
+			<a class="link" id="" href="">portfolio</a>
+			
+			<a class="link" id="" href="">jquery</a>
+			
+			<a class="link" id="" href="">port</a>
+		</nav>
 
-	    <div class="center">
-	      <div id="ivynexus" class="accordion">
-		<a href="http://www.ivynexus.com"><div id="in"></div></a>
+		  <hr class="hor_div_top" />
+	    <div class="center"  id="center_ivynexus">
+	      <div id="ivynexus" class="square">
+		      <div id="in"></div>
 	      </div>
+	      <div id="attnpopup">click me!</div>
+	      
+	    </div>
+	    <div class="slide_container">
+		    <div id="scrollLeft" class="square_slide"></div>
+		    <div class="slide_container_inner" id="ivynexus_container">
+			      <div id="ivynexus_slides" class="square_slide" value="active">
+				      <img src="Tour/login.jpg" id="first" class="thumbnail" alt="login">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				      <img src="Tour/login2.jpg" id="second" class="thumbnail" alt="login2">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				      <img src="Tour/slideshow.jpg" id="third" class="thumbnail" alt="slideshow">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				      <img src="Tour/slideshow2.jpg" id="fourth" class="thumbnail" alt="slideshow2">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				      <img src="Tour/profile.jpg" id="fifth" class="thumbnail" alt="profile">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				      <img src="Tour/profile2.jpg" id="sixth" class="thumbnail" alt="profile2">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/schoollisting.jpg" id="seventh" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/schoolwall.jpg" id="eighth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/members.jpg" id="ninth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/hovermap2.jpg" id="tenth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/hoversvg.jpg" id="eleventh" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/contact.jpg" id="twelfth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/calendar.jpg" id="thirteenth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/eventpopup.jpg" id="fourteenth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/listings.jpg" id="fifteenth" class="thumbnail" alt="schoollisting">
+			      </div>
+			      <div id="ivynexus_slides" class="square_slide">
+				     <img src="Tour/messaging.jpg" id="sixteenth" class="thumbnail" alt="schoollisting">
+			      </div>
+		    </div>
+		    
+			<div id="scrollRight" class="square_slide"></div>
+	    </div>
+	    
+	    <div class="display_box" id="ivynexus_box">
+	    	<div id="first" class="screenshot" style="display: inline-block; opacity: 1;">
+				      <img src="Tour/login.jpg" alt="login">
+	    	</div>
+	    	<div id="second" class="screenshot" >
+				     <img src="Tour/login2.jpg" alt="login2">
+			</div>
+	    	<div id="third" class="screenshot" >
+				     <img src="Tour/slideshow.jpg" alt="slideshow">
+			</div>
+	    	<div id="fourth" class="screenshot" >
+				     <img src="Tour/slideshow2.jpg" alt="slideshow2">
+			</div>
+	    	<div id="fifth" class="screenshot" >
+				     <img src="Tour/profile.jpg" alt="profile">
+			</div>
+	    	<div id="sixth" class="screenshot" >
+				     <img src="Tour/profile2.jpg" alt="profile2">
+			</div>
+	    	<div id="seventh" class="screenshot" >
+				     <img src="Tour/schoollisting.jpg" alt="schoollisting">
+			</div>
+	    	<div id="eighth" class="screenshot" >
+				     <img src="Tour/schoolwall.jpg" alt="schoollisting">
+			</div>
+	    	<div id="ninth" class="screenshot" >
+				     <img src="Tour/members.jpg" alt="schoollisting">
+			</div>
+	    	<div id="tenth" class="screenshot" >
+				     <img src="Tour/hovermap2.jpg" alt="schoollisting">
+			</div>
+	    	<div id="eleventh" class="screenshot" >
+				     <img src="Tour/hoversvg.jpg" alt="schoollisting">
+			</div>
+	    	<div id="twelfth" class="screenshot" >
+				     <img src="Tour/contact.jpg" alt="schoollisting">
+			</div>
+	    	<div id="thirteenth" class="screenshot" >
+				     <img src="Tour/calendar.jpg" alt="schoollisting">
+		    </div>
+	    	<div id="fourteenth" class="screenshot" >
+				     <img src="Tour/eventpopup.jpg" alt="schoollisting">
+			</div>
+	    	<div id="fifteenth" class="screenshot" >
+				     <img src="Tour/listings.jpg" alt="schoollisting">
+			</div>
+	    	<div id="sixteenth" class="screenshot" >
+				     <img src="Tour/messaging.jpg" alt="schoollisting">
+			</div>
 	    </div>
 
-	    <div class="center">
-	      <div id="ocf" class="accordion">
-		<a href="http://www.dartmouth.edu/~ocf"><div id="dartocf"></div></a>
-	      </div>
-	    </div>
-
-	  </center>
 	  
 	</body>
 	
